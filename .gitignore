@@ -1,0 +1,26 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node / Next.js
+node_modules/
+frontend/.swc/
+.next/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Runtime data
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/civicresolve.db
+test-results/
+playwright-report/
+frontend/coverage/
+backend/coverage.xml
+.coverage

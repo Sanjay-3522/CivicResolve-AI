@@ -1,0 +1,22 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:jsx-a11y/strict"],
+  "plugins": ["jsx-a11y"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
+    "jsx-a11y/no-noninteractive-tabindex": [
+      "error",
+      {
+        "tags": [],
+        "roles": ["tabpanel"],
+        "allowExpressionValues": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"]
+    }
+  ]
+}

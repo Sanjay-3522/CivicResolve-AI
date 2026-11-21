@@ -1,0 +1,44 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:httplib2.*", "ignore::DeprecationWarning:google.*"]
+
+[tool.coverage.run]
+source = ["routes", "services"]
+branch = false
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+skip_empty = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+extend-exclude = ["venv", ".venv", "uploads"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM"]
+ignore = [
+    "B008",   # FastAPI dependency defaults (Depends/Form/Query) are idiomatic
+    "S101",   # assert is fine in tests
+    "S105",   # enum member PWD (Public Works Dept) is not a password
+    "UP042",  # keep (str, Enum): StrEnum would change str() output used in API responses
+    "E402",   # main.py loads .env before importing app modules on purpose
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "B017"]
+"seed_fixtures.py" = ["E501"]
+"seed_data.py" = ["S311", "E501"]  # demo data: non-crypto random, long prose strings
+"services/prompts.py" = ["E501"]  # LLM prompt text is kept verbatim
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+check_untyped_defs = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+exclude = ["^venv/", "^uploads/"]

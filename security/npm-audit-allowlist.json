@@ -1,0 +1,21 @@
+{
+  "_comment": "High/critical advisories with no fix inside Next 14.x (fixes require a major upgrade to Next 15.5+/16). Each entry states why it is not exploitable here. Re-review when upgrading Next. Any advisory NOT listed fails CI.",
+  "reviewed": "2026-11-21",
+  "advisories": {
+    "GHSA-2464-fhr4-w9xw": "Image Optimization API RCE (SVG): next.config sets images.unoptimized=true and the app never uses next/image, so /_next/image is not served.",
+    "GHSA-2xp9-vwfh-vxw4": "Image Optimization API RCE (AVIF): same mitigation as above (optimizer disabled).",
+    "GHSA-p293-qw3h-jr36": "Windows-hosted servers only; production runs in a Linux container (python:3.11-slim).",
+    "GHSA-36qx-fr4f-26g5": "Pages Router + i18n only; the app uses the App Router and has no i18n config.",
+    "GHSA-89xv-2m56-2m9x": "Server Actions on custom servers; the app defines no Server Actions and uses the stock standalone server.",
+    "GHSA-m99w-x7hq-7vfj": "Server Actions DoS; the app defines no Server Actions.",
+    "GHSA-p3m5-59mp-jv5r": "Server Actions DoS; the app defines no Server Actions.",
+    "GHSA-c4j6-fc7j-m34r": "SSRF via WebSocket upgrades; the app has no WebSocket routes and rewrites only to a fixed loopback backend.",
+    "GHSA-p9j2-gv94-2wf4": "SSRF via attacker-controlled rewrite destination host; all rewrite destinations are a constant BACKEND_ORIGIN (127.0.0.1:8000), never request-derived.",
+    "GHSA-8h8q-6873-q5fj": "RSC DoS: availability-only. All pages are client components fed by the JSON API; Cloud Run restarts unhealthy containers (start.sh exits on child death).",
+    "GHSA-q4gf-8mx6-v5v3": "RSC DoS: availability-only, same rationale as GHSA-8h8q-6873-q5fj.",
+    "GHSA-h25m-26qc-wcjf": "RSC request deserialization DoS: availability-only, same rationale; no Server Functions are exposed.",
+    "GHSA-6g55-p6wh-862q": "PostCSS (bundled in next) only processes first-party CSS at build time; no attacker-controlled CSS or sourceMappingURL is ever parsed.",
+    "GHSA-r28c-9q8g-f849": "PostCSS build-time only, same rationale as GHSA-6g55-p6wh-862q.",
+    "GHSA-5j98-mcp5-4vw2": "glob CLI -c/--cmd injection; glob is a dev-only transitive of eslint-config-next and its CLI is never invoked."
+  }
+}

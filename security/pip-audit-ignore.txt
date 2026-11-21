@@ -1,0 +1,4 @@
+# SECURITY POLICY: no automated exceptions by default.
+# Vulnerabilities discovered by pip-audit must be fixed or reviewed before release.
+# To grant a temporary exception, add an advisory ID and reason here, then
+# document its owner, exploitability assessment and expiry date in SECURITY.md.
