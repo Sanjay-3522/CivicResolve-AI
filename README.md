@@ -32,8 +32,6 @@
 
 **CI repair / judge handoff:** [CI_REPAIR_GUIDE.md](CI_REPAIR_GUIDE.md).
 
-**Public GitHub repository:** `<REPLACE_WITH_HTTPS_GITHUB_LINK>` · **Live demo:** `<LIVE_URL>` · **Admin login:** `<LIVE_URL>/admin/login` with the demo admin key given in the submission notes · `GET <LIVE_URL>/health` shows `"ai_mode": "live"` when a Gemini key is configured; successful calls still require verification.
-
 ## Requirement → Feature → Where in code → Test that proves it
 
 Every sentence of the problem statement, mapped. Backend paths are relative to `backend/`, frontend paths to `frontend/`.
